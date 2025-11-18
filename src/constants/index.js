@@ -59,8 +59,9 @@ const performanceImgPositions = [
   },
   {
     id: "p5",
-    left: 20,
+    left: 50,
     bottom: 50,
+    transform: 'translateX(-50%)',
   },
   {
     id: "p6",
