@@ -2,7 +2,7 @@
 
 A modern, scroll-driven product microsite inspired by Apple’s MacBook marketing pages. It features a realtime 3D MacBook model rendered in the browser, synchronized with rich scroll animations and feature callouts.
 
-##Key Features
+## Key Features
 -  3D MacBook model rendered with react-three-fiber (three.js under the hood)
 -  Scroll-synced animations powered by GSAP and @gsap/react
 -  Feature “chapters” that fade in/out and swap textures/video on the laptop screen
@@ -20,16 +20,21 @@ Styling: index.css
 ## Build
 npm run build
 
-## Structure
+## Project Structure
 src/
   App.jsx
   index.css
   constants/
+    index.js              # static data: features, sequences, assets
   store/
+    index.js              # zustand store (e.g., `setTexture`)
   components/
-    Features.jsx
-    Highlights.jsx
-    Performance.jsx
-    Footers.jsx
-    three/studioLight.jsx
-    models/Macbook.jsx
+    Features.jsx          # Scroll-pinned canvas + feature callouts
+    Highlights.jsx        # <section> with marketing highlights
+    Performance.jsx       # <section> with performance specifics
+    Footers.jsx           # Footer/links
+    three/
+      studioLight.jsx     # lighting setup for the scene
+    models/
+      Macbook.jsx         # Main 3D model
+      Macbook-16.jsx      # Variant (16-inch)
