@@ -1,16 +1,76 @@
-# React + Vite
+README — Apple MacBook Showcase (3D + GSAP)
+A modern, scroll-driven product microsite inspired by Apple’s MacBook marketing pages. It features a realtime 3D MacBook model rendered in the browser, synchronized with rich scroll animations and feature callouts.
+Demo
+•
+Live demo: <add-your-deployment-url>
+•
+Preview video/GIF: <drop a short screen capture>
+Key Features
+•
+3D MacBook model rendered with react-three-fiber (three.js under the hood)
+•
+Scroll-synced animations powered by GSAP and @gsap/react
+•
+Feature “chapters” that fade in/out and swap textures/video on the laptop screen
+•
+Responsive model scaling for mobile/desktop
+•
+Optimized media preloading for smooth transitions
+Tech Stack
+•
+Framework: React
+•
+3D/Rendering: three.js, @react-three/fiber, @react-three/drei
+•
+Animation: gsap, @gsap/react (with ScrollTrigger)
+•
+State management: zustand (via a custom useMacBookStore hook)
+•
+Utilities: clsx, react-responsive
+•
+Styling: index.css (plain CSS; replace or extend with your preferred system)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project Structure
+src/
+  App.jsx
+  index.css
+  constants/
+    index.js              # static data: features, sequences, assets
+  store/
+    index.js              # zustand store (e.g., `setTexture`)
+  components/
+    Features.jsx          # Scroll-pinned canvas + feature callouts
+    Highlights.jsx        # <section> with marketing highlights
+    Performance.jsx       # <section> with performance specifics
+    Footers.jsx           # Footer/links
+    three/
+      studioLight.jsx     # lighting setup for the scene
+    models/
+      Macbook.jsx         # Main 3D model
+      Macbook-16.jsx      # Variant (16-inch)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+How It Works (high level)
+•
+Features.jsx
+◦
+Renders a scroll-pinned <Canvas> with StudioLight and the Macbook model.
+◦
+Uses useGSAP to build two timelines:
+▪
+A model rotation timeline pinned to #f-canvas.
+▪
+A content timeline that reveals .box1–.box5 feature cards and calls setTexture to swap the video texture on the model.
+◦
+Preloads videos from featureSequence for smoother playback.
+•
+useMacBookStore (Zustand)
+◦
+Exposes setTexture(videoPath) used by GSAP callbacks.
+•
+@react-three/drei/Html
+◦
+Displays a lightweight fallback while the model is loading.
+•
+react-responsive
+◦
+Adjusts the model scale based on viewport width.
