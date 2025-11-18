@@ -1,18 +1,26 @@
 # Apple MacBook Showcase (React + Three.js + GSAP)
 
-A scroll-driven 3D product page built with React, react-three-fiber, and GSAP.
+A modern, scroll-driven product microsite inspired by Apple’s MacBook marketing pages. It features a realtime 3D MacBook model rendered in the browser, synchronized with rich scroll animations and feature callouts.
 
-## Features
-- 3D MacBook with scroll animations
-- Video texture swaps tied to feature chapters
-- Responsive and performant
-
-## Stack
-React, three.js, @react-three/fiber, @react-three/drei, gsap, @gsap/react, zustand, clsx, react-responsive
+##Key Features
+-  3D MacBook model rendered with react-three-fiber (three.js under the hood)
+-  Scroll-synced animations powered by GSAP and @gsap/react
+-  Feature “chapters” that fade in/out and swap textures/video on the laptop screen
+-  Responsive model scaling for mobile/desktop
+-  Optimized media preloading for smooth transitions
+  
+## Tech Stack
+Framework: React
+3D/Rendering: three.js, @react-three/fiber, @react-three/drei
+Animation: gsap, @gsap/react (with ScrollTrigger)
+State management: zustand (via a custom useMacBookStore hook)
+Utilities: clsx, react-responsive
+Styling: index.css 
 
 ## Build
 npm run build
-Structure
+
+## Structure
 src/
   App.jsx
   index.css
