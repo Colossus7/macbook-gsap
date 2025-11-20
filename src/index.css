@@ -109,6 +109,13 @@ body {
                     @apply hidden md:block text-white opacity-80 font-regular text-sm cursor-pointer hover:opacity-100 transition-all duration-300 ease-in-out;
                 }
             }
+            .lang-toggle {
+                @apply px-2 py-1 rounded-md font-semibold text-white/90 border border-white/20 bg-transparent hover:text-white hover:border-white/40 transition;
+            }
+            .lang-toggle:focus-visible {
+                outline: 2px solid #007aff;
+                outline-offset: 2px;
+            }
         }
     }
 
@@ -151,7 +158,8 @@ body {
             @apply absolute z-50 bottom-40 lg:bottom-40 2xl:bottom-52 left-1/2 -translate-x-1/2;
 
             .info {
-                @apply text-xs text-white bg-black/20 px-2 py-1 rounded-lg;
+                /* Make the product info text larger and more legible */
+                @apply text-sm md:text-base lg:text-lg 2xl:text-xl font-semibold text-white bg-black/20 px-3 py-1.5 rounded-lg;
             }
 
             .color-control {

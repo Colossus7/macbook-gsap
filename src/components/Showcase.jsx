@@ -2,10 +2,12 @@ import React from 'react'
 import {useMediaQuery} from "react-responsive";
 import gsap from "gsap";
 import {useGSAP} from "@gsap/react";
+import { useI18n } from "../constants/i18n-core";
 
 const Showcase = () => {
 
   const isTablet = useMediaQuery({query: '(max-width: 1024px)'});
+  const { t } = useI18n();
 
   useGSAP(() => {
     if(!isTablet) {
@@ -37,35 +39,41 @@ const Showcase = () => {
       <div className="content">
         <div className="wrapper">
           <div className="lg:max-w-md">
-            <h2>Rocket Chip</h2>
+            {/* Left side */}
+            <h2>{t('showcase.title')}</h2>
 
             <div className="space-y-5 mt-7 pe-10">
-              <p>Introducing {" "}
-              <span className="text-white">
-                M4, the next generation of Apple silicon
-              </span>
-                . M4 Powers
-              </p>
               <p>
-                It drives Apple Intelligence on iPad Pro, so you can write, create, and accomplish more with ease. All in a design that’s unbelievably thin, light, and powerful.
+                {t('showcase.intro_1')}{" "}
+                <span className="text-white">{t('showcase.intro_2_emph')}</span>
+                {t('showcase.intro_3')}
               </p>
+              <p>{t('showcase.p2')}</p>
+              <p>{t('showcase.p3')}</p>
               <p>
-                A brand-new display engine delivers breathtaking precision, color accuracy, and brightness. And a next-gen GPU with hardware-accelerated ray tracing brings console-level graphics to your fingertips.
+                <a
+                  href={t('showcase.learn_url')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline"
+                >
+                  {t('showcase.learn_text')}
+                </a>
               </p>
-              <p className="text-primary">Learn more about Apple Intelligence</p>
             </div>
           </div>
+          {/* Right side */}
           <div className="max-w-3xs space-y-14">
             <div className="space-y-2">
-              <p>Up to</p>
-              <h3>4x faster</h3>
-              <p>pro rendering performance than M2</p>
+              <p>{t('showcase.metrics.up_to')}</p>
+              <h3>{t('showcase.metrics.faster_4x')}</h3>
+              <p>{t('showcase.metrics.pro_render_than_m2')}</p>
             </div>
           </div>
           <div className="space-y-2">
-            <p>Up to</p>
-            <h3>1.5x faster</h3>
-            <p>CPU performance than M2</p>
+            <p>{t('showcase.metrics.up_to')}</p>
+            <h3>{t('showcase.metrics.faster_1_5x')}</h3>
+            <p>{t('showcase.metrics.cpu_than_m2')}</p>
           </div>
         </div>
       </div>
