@@ -1,4 +1,4 @@
-# Apple MacBook Showcase (React + Three.js + GSAP)
+# Apple MacBook Pro Showcase (React + Three.js + GSAP)
 
 A modern, scroll-driven product microsite inspired by Apple's MacBook marketing pages. It features a realtime 3D MacBook model rendered in the browser, synchronized with rich scroll animations, interactive features, and multilingual support.
 
@@ -128,6 +128,3 @@ footer: {
 
   sitemap: "Peta Situs",
 }
-
-
-Dokumentasi versi Bahasa Indonesia akan segera tersedia dalam file terpisah `README-ID.md`.
