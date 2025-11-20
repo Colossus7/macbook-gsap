@@ -4,7 +4,7 @@ A modern, scroll-driven product microsite inspired by Apple's MacBook marketing 
 
 ## Key Features
 
-* **3D MacBook model** rendered with react-three-fiber (three.js under the hood)
+* **3D MacBook Pro model** rendered with react-three-fiber (three.js under the hood)
 * **Scroll-synced animations** powered by GSAP and @gsap/react (ScrollTrigger)
 * **Feature "chapters"** that fade in/out and swap textures/video on the laptop screen
 * **Responsive model scaling** for mobile/desktop
@@ -76,7 +76,7 @@ resources
       └── footer, nav, showcase, highlights, performance, hero...
 ```
 
-* Components use:
+* Example Components use(Footer) :
 
 ```jsx
 const { t, lang, setLang } = useI18n();
@@ -86,45 +86,3 @@ const { t, lang, setLang } = useI18n();
 </a>
 ```
 
-### Footer Translation Example
-
-```
-footer: {
-  fp1: "More ways to shop...",
-  fp2: "Copyright © 2025 Apple Inc...",
-
-  privacy: "Privacy Policy",
-  privacy_link: "https://www.apple.com/legal/privacy/",
-
-  terms: "Terms of Use",
-  terms_link: "https://www.apple.com/legal/internet-services/terms/site.html",
-
-  sales: "Sales Policy",
-  sales_link: "https://www.apple.com/legal/sales-support/sales-policies/retail_us.html",
-
-  legal: "Legal",
-  legal_link: "https://www.apple.com/legal/",
-
-  sitemap: "Sites Map",
-  sitemap_link: "https://www.apple.com/sitemap/"
-}
-```
-
-### Indonesian Version Example
-
-```
-footer: {
-  fp1: "Ada banyak cara berbelanja...",
-  fp2: "Hak cipta © 2025 Apple Inc...",
-
-  privacy: "Kebijakan Privasi",
-  privacy_link: "https://www.apple.com/legal/privacy/id/",
-
-  terms: "Ketentuan Penggunaan",
-
-  sales: "Kebijakan Penjual",
-
-  legal: "Legal",
-
-  sitemap: "Peta Situs",
-}
