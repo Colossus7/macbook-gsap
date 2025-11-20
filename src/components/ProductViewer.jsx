@@ -5,18 +5,20 @@ import {Canvas} from "@react-three/fiber";
 import StudioLight from "./three/studioLight.jsx";
 import ModelSwitcher from './three/ModelSwitcher.jsx';
 import {useMediaQuery} from "react-responsive";
+import {useI18n} from "../constants/i18n-core.jsx";
 
 const ProductViewer = () => {
 
   const {color,scale,setColor,setScale} = useMacBookStore();
   const isMobile = useMediaQuery({ query: '(max-width: 1024px)' });
+  const { t } = useI18n();
 
   return (
     <section id="product-viewer">
-      <h2>Take a closer look.</h2>
+      <h2>{t('pv.title')}</h2>
 
       <div className="controls">
-          <p className="info">MacBook Pro {scale} in {color === '#2e2c2e' ? 'Black' : color === '#adb5bd' ? 'Silver' : color}</p>
+          <p className="info">MacBook Pro in {color === '#2e2c2e' ? 'Black' : color === '#adb5bd' ? 'Silver' : color}</p>
         <div className="flex-center gap-5 mt-5">
 
         <div className="color-control">

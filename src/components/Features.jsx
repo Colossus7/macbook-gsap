@@ -9,8 +9,10 @@ import Macbook from "./models/Macbook.jsx";
 import useMacBookStore from "../store/index.js";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
+import {useI18n} from "../constants/i18n-core.jsx";
 
 const ModelScroll = () => {
+
   const groupRef = useRef(null);
   const isMobile = useMediaQuery({ query: '(max-width: 1024px)' });
   const {setTexture} = useMacBookStore();
@@ -84,9 +86,11 @@ const ModelScroll = () => {
 }
 
 const Features = () => {
+  const { t } = useI18n();
+  const { lang } = useI18n();
   return (
     <section id="features">
-  <h2>See it all in a new light.</h2>
+  <h2>{t('feature.fea_h1')}</h2>
 
       <Canvas id="f-canvas" camera={{}}>
         <StudioLight/>
@@ -95,17 +99,17 @@ const Features = () => {
       </Canvas>
 
       <div className="absoulute inset-0">
-        {features.map((feature, index) =>(
-          <div className={clsx('box', `box${index + 1}`, feature.styles)}>
-            <div key={feature.id} className={clsx('box',`box${index + 1}`, feature.styles)}/>
-            <img src={feature.icon} alt={feature.highlight} />
-            <p>
-              <span className="text-white">
-              {feature.text}
-              </span>
-            </p>
-          </div>
-        ))}
+        {features.map((feature, index) =>{
+          const text = feature.text?.[lang] ?? feature.text?.en ?? '';
+          return (
+            <div className={clsx('box', `box${index + 1}`, feature.styles)} key={feature.id}>
+              <img src={feature.icon} alt={feature.highlight} />
+              <p>
+                <span className="text-white">{text}</span>
+              </p>
+            </div>
+          );
+        })}
       </div>
 
     </section>

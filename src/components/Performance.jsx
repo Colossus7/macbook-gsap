@@ -4,13 +4,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import {performanceImages, performanceImgPositions} from "../constants/index.js";
 import {useMediaQuery} from "react-responsive";
-
+import {useI18n} from "../constants/i18n-core.jsx";
 
 // Register GSAP plugins once at module load
 gsap.registerPlugin(ScrollTrigger);
 
 const Performance = () => {
-
+  const { t } = useI18n();
   const isMobile = useMediaQuery({ query: '(max-width: 1024px)' });
   const sectionRef = useRef(null);
 
@@ -39,10 +39,8 @@ const Performance = () => {
         }
       );
     }
-
     //Mobile only scrubbed timeline for images
     if(isMobile) return;
-
     // Desktop-only scrubbed timeline for images
     mm.add("(min-width: 1025px)", () => {
       const tl = gsap.timeline({
@@ -60,7 +58,6 @@ const Performance = () => {
         // Skip p5 on desktop timeline as requested
         if (pos.id === "p5") return;
         const selector = `.${pos.id}`;
-
         // Ensure initial state
         gsap.set(selector, { position: "absolute", opacity: 0, y: 40 });
 
@@ -69,7 +66,6 @@ const Performance = () => {
         if (Object.prototype.hasOwnProperty.call(pos, "right")) toVars.right = `${pos.right}%`;
         if (Object.prototype.hasOwnProperty.call(pos, "bottom")) toVars.bottom = `${pos.bottom}%`;
         if (Object.prototype.hasOwnProperty.call(pos, "transform")) toVars.transform = pos.transform;
-
         tl.to(selector, toVars, 0);
       });
 
@@ -93,7 +89,7 @@ const Performance = () => {
 
   return (
     <section id="performance" ref={sectionRef}>
-      <h2>Next-level graphics performance. Game on.</h2>
+      <h2>{t('performance.title')}</h2>
 
         <div className="wrapper">
           {performanceImages.map((item,index) => (
@@ -109,13 +105,11 @@ const Performance = () => {
 
       <div className="content">
         <p>
-          Run graphics-intensive workflows with a responsiveness that keeps up with your imagination.
-          The M4 family of chips features a GPU with a second-generation
-          hardware-accelerated ray tracing engine that renders images faster
+          {t('performance.p1_a')}
           , {' '}<span className="text-white">
-          so gaming feels more immersive and realistic than ever.
+          {t('performance.p1_span')}
           </span>{' '}
-          And Dynamic Caching optimizes fast on-chip memory to dramatically increase average GPU utilization — driving a huge performance boost for the most demanding pro apps and games.
+          {t('performance.p1_b')}
         </p>
       </div>
     </section>
